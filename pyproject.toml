@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "pychamber"
+version = "0.1.0"
+description = ""
+authors = ["Steve Clarke <84364906+s7clarke10@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+boto3 = "^1.28.46"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+# Python-style entrypoints and scripts are easily expressed
+[tool.poetry.scripts]
+chamber = "pychamber.chamber:main"
