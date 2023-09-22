@@ -29,7 +29,7 @@ def main():
             my_env[param] = store[ssm_param]
 
     my_command = args.exec
-    subprocess.Popen(my_command, env=my_env)
+    subprocess.Popen(my_command, env=my_env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 
 # run the main function only if this module is executed as the main script
 # (if you import this as a module then nothing is executed)
