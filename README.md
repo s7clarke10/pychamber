@@ -27,12 +27,17 @@ Example:
 
 ```bash
 chamber -get_params /meltano/tap-rest-api-msdk /meltano/target-snowflake -exec meltano run tap-rest-api-msdk target-snowflake
+
+chamber -get_params /meltano/tap-rest-api-msdk /meltano/target-snowflake -priority_env_vars -exec meltano run tap-rest-api-msdk target-snowflake
 ```
 
-## get_param switch
+## get_param parameter
 The environment variables are not persisted to the shell. They only available to the calling program minimising discovery.
 
 You may supply one or many valid SSM Parameter store paths. Separate each path into a separate parameter by a space.
+
+## priority_env_vars switch
+Optional: Use existing env variables if they exist rather than incoming SSM Parameters. Default False
 
 ## exec switch
 Calls a sub-process to execute the given program. Chamber expects that the given program call is available in the PATH or is a fully qualified location to the executable.
