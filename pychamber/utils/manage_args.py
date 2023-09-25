@@ -134,6 +134,14 @@ def parse_exec(required_config_keys):
         default=[],
         required=True
     )
+    
+    parser.add_argument(
+        '-priority_env_vars', '--priority_env_vars',
+        help='Use existing env variables if they exist rather than incoming SSM Parameters. Default False',
+        action='store_true',
+        default=False,
+        required=False
+    )
         
     parser.add_argument(
         '-exec', '--exec',
