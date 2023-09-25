@@ -21,7 +21,7 @@ https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-a
 
 # Usage
 
-To retrieve secrets from the SSM parameter store use the get_param switch which allows one or many parameters to be supplied and then pass them to an executing program.
+To retrieve secrets from the SSM parameter store use the get_params switch which allows one or many parameters to be supplied and then pass them to an executing program.
 
 Example:
 
@@ -31,10 +31,11 @@ chamber -get_params /meltano/tap-rest-api-msdk /meltano/target-snowflake -exec m
 chamber -get_params /meltano/tap-rest-api-msdk /meltano/target-snowflake -priority_env_vars -exec meltano run tap-rest-api-msdk target-snowflake
 ```
 
-## get_param parameter
-The environment variables are not persisted to the shell. They only available to the calling program minimising discovery.
+## get_params switch
+You may supply one or many valid SSM Parameter store paths (each level of the hierarchy is separated by a slash).
+When specifying more that one path to parameters, separate each path by a space.
 
-You may supply one or many valid SSM Parameter store paths. Separate each path into a separate parameter by a space.
+Note: The environment variables are not persisted in the shell. They are only available to the calling program minimising discovery.
 
 ## priority_env_vars switch
 Optional: Use existing env variables if they exist rather than incoming SSM Parameters. Default False
@@ -46,7 +47,7 @@ Calls a sub-process to execute the given program. Chamber expects that the given
 
 The following people / projects are credited for pychamber project.
 
-1. [segmentio](https://github.com/segmentio/chamber) . The authors of a full implementation of chamber in the go language.
+1. [segmentio](https://github.com/segmentio/chamber) . The authors of a full implementation of chamber in the Go language.
 
 2. [Julian Libiseller-Egger](https://github.com/julibeg) for enhanced argpass features to allow all parameters to be passed to the executing program (even when they are switches). [argpass](https://github.com/julibeg/argpass).
 
