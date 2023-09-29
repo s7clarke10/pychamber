@@ -60,11 +60,11 @@ class SSMParameterStore(object):
         self._keys = {}
         self._substores = {}
 
-        paginator = self._client.get_paginator('describe_parameters')
+        paginator = self._client.get_paginator('get_parameters_by_path')
         pager = paginator.paginate(
-            ParameterFilters=[
-                dict(Key="Path", Option="Recursive", Values=[self._prefix])
-            ]
+            Path=self._prefix,
+            WithDecryption=True,
+            PaginationConfig={'PageSize': 10},
         )
 
         for page in pager:
