@@ -1,11 +1,14 @@
 """Utilities for pychamber."""
 
-import logging as log
+import logging
 import subprocess
 
-def c(command):
-    log.debug("Command: {}".format(command))
-    result = subprocess.run(command, shell=True, capture_output=True)
+def c(command, env):
+    """ Runs requested process with arguments.
+        Enable debug logging and raise errors.
+    """
+    logging.debug("Command: {}".format(command))
+    result = subprocess.run(command, env, shell=False, capture_output=True)
     if result.stderr:
         raise subprocess.CalledProcessError(
                 returncode = result.returncode,
@@ -13,5 +16,5 @@ def c(command):
                 stderr = result.stderr
                 )
     if result.stdout:
-        log.debug("Command Result: {}".format(result.stdout.decode('utf-8')))
+        logging.debug("Command Result: {}".format(result.stdout.decode('utf-8')))
     return result
