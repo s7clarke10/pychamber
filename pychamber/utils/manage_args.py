@@ -1,4 +1,4 @@
-# manage_args.py
+"""Process cli arguments via argparse with extensions."""
 
 import argparse
 from enum import Enum
