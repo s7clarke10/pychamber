@@ -8,13 +8,7 @@ def run_command(command, env):
         Enable debug logging and raise errors.
     """
     logging.debug("Command: {}".format(command))
-    result = subprocess.run(command, env=env, shell=False, capture_output=True)
-    if result.stderr:
-        raise subprocess.CalledProcessError(
-                returncode = result.returncode,
-                cmd = result.args,
-                stderr = result.stderr
-                )
+    result = subprocess.run(command, env=env, shell=False, capture_output=False)
     if result.stdout:
-        logging.debug("Command Result: {}".format(result.stdout.decode('utf-8')))
-    return result
+        logging.debug(f"Command Result: {result.returncode=}")
+    return result.returncode
