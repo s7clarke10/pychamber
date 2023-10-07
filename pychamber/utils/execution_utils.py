@@ -8,7 +8,7 @@ def c(command, env):
         Enable debug logging and raise errors.
     """
     logging.debug("Command: {}".format(command))
-    result = subprocess.run(command, env, shell=False, capture_output=True)
+    result = subprocess.run(command, env=env, shell=False, capture_output=True)
     if result.stderr:
         raise subprocess.CalledProcessError(
                 returncode = result.returncode,
