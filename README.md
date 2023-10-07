@@ -43,6 +43,8 @@ Optional: Use existing env variables if they exist rather than incoming SSM Para
 ## exec switch
 Calls a sub-process to execute the given program. Chamber expects that the given program call is available in the PATH or is a fully qualified location to the executable.
 
+Note: Chamber will capture the return result from the program which is executed and will return the result of the execution back to the shell.
+
 # Credits
 
 The following people / projects are credited for pychamber project.

@@ -1,6 +1,6 @@
 import os
-import subprocess
 
+from pychamber.utils.execution_utils import run_command
 from pychamber.utils.ssm_parameter_store import SSMParameterStore
 from pychamber.utils.manage_args import (
     parse_exec,
@@ -47,7 +47,8 @@ def main():
                 my_env[param] = store[ssm_param]
 
     my_command = args.exec
-    subprocess.run(my_command, env = my_env)
+    result = run_command(my_command, env = my_env)
+    return result
 
 # run the main function only if this module is executed as the
 # main script. (if you import this as a module then nothing is executed)

@@ -1,3 +1,5 @@
+"""Interact with AWS Parameter Store for secrets via boto3."""
+
 # Copyright (c) 2018 Bao Nguyen <b@nqbao.com>
 # 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
