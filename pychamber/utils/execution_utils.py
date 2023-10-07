@@ -9,6 +9,5 @@ def run_command(command, env):
     """
     logging.debug("Command: {}".format(command))
     result = subprocess.run(command, env=env, shell=False, capture_output=False)
-    if result.stdout:
-        logging.debug(f"Command Result: {result.returncode=}")
+
     return result.returncode
