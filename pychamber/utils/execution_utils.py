@@ -3,7 +3,7 @@
 import logging
 import subprocess
 
-def c(command, env):
+def run_command(command, env):
     """ Runs requested process with arguments.
         Enable debug logging and raise errors.
     """
